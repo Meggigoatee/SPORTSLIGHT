@@ -1,0 +1,5 @@
+package com.sportslight.view.dto;
+
+public class ViewDTO {
+
+}

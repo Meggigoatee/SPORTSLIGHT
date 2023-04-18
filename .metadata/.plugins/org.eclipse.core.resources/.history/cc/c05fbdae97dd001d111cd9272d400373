@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<!-- 동영상 세부페이지를 위한 Mapper-->
+
+<mapper namespace="com.sportslight.view.dao.ViewDAO">
+	
+	<!--동영상 정보 가져오기-->
+	<select id="getVideo" parameterType="int" resultType="ViewDTO">
+		SELECT * from video
+	</select>
+	
+	<!--동영상 한줄 댓글 가져오기-->
+	<select id="getVideoBoard" parameterType="int" resultType="ViewBoardDTO">
+		SELECT * FROM videoboard
+	</select>
+	
+	<!--동영상 조회시 조회수 1씩 증가-->
+	<update id="viewCount" parameterType="int">
+		UPDATE video
+		SET videoviews = videoviews + 1
+		WHERE videoNum = #{videoNum}
+	</update>
+	
+</mapper>

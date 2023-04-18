@@ -1,0 +1,50 @@
+package com.sportslight.view.controller;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.sportslight.view.dto.ViewBoardDTO;
+import com.sportslight.view.dto.ViewDTO;
+import com.sportslight.view.service.ViewService;
+
+import lombok.NoArgsConstructor;
+
+@CrossOrigin(origins = {"http://localhost:3000"})
+@RestController
+@NoArgsConstructor
+public class ViewController {
+	
+	@Autowired
+	private ViewService viewService;
+	
+	private ViewDTO viewDTO;
+	private ViewBoardDTO viewBoardDTO;
+	
+	@GetMapping("/view/{videoNum}")
+	public Map<String, Object> viewExecute(@PathVariable("videoNum") int videoNum) {
+		Map<String, Object> map = new HashMap<>();
+		List<ViewBoardDTO> vblist = new ArrayList<>();
+		
+		ViewDTO vd = viewService.getVideoService(videoNum);
+		vblist = viewService.getVideoBoardService(videoNum);
+		int vc = viewService.getVideoBoardCountService(videoNum);
+		
+		map.put("video", vd);
+		map.put("videoBoard", vblist);
+		System.out.println(vd.getVideoName());
+		System.out.println(vblist.size());
+		System.out.println(vc);
+		
+		return map;
+	}
+	
+
+}

@@ -1,0 +1,29 @@
+package com.sportslight.view.service;
+
+import org.springframework.stereotype.Service;
+
+import com.sportslight.view.dto.ViewBoardDTO;
+import com.sportslight.view.dto.ViewDTO;
+
+@Service
+public class ViewServiceImp implements ViewService{
+
+	@Override
+	public ViewDTO getVideoService(int videoNum) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ViewBoardDTO getVideoBoardService(int videoBoardNum) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void viewCountService(int videoNum) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

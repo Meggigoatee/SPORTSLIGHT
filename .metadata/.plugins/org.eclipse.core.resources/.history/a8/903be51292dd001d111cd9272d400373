@@ -1,0 +1,34 @@
+package com.sportslight.view.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.sportslight.view.dao.ViewDAO;
+import com.sportslight.view.dto.ViewBoardDTO;
+import com.sportslight.view.dto.ViewDTO;
+
+@Service
+public class ViewServiceImp implements ViewService{
+	
+	@Autowired
+	private ViewDAO viewDAO;
+
+	@Override
+	public ViewDTO getVideoService(int videoNum) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ViewBoardDTO getVideoBoardService(int videoBoardNum) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void viewCountService(int videoNum) {
+		viewDAO.viewCount(videoNum);
+		
+	}
+
+}

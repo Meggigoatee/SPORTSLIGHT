@@ -1,0 +1,5 @@
+package com.sportslight.view.service;
+
+public interface ViewServiceImp {
+
+}

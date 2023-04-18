@@ -1,0 +1,5 @@
+package com.sportslight.view.dao;
+
+public interface ViewDAO {
+
+}

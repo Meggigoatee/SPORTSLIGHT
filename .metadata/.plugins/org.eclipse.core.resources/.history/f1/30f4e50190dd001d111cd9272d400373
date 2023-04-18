@@ -1,0 +1,16 @@
+package com.sportslight.view.dao;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
+
+import com.sportslight.view.dto.ViewBoardDTO;
+import com.sportslight.view.dto.ViewDTO;
+
+@Mapper
+@Repository
+public interface ViewDAO {
+	public ViewDTO getVideo();
+	public ViewBoardDTO getVideoBoard();
+	
+
+}

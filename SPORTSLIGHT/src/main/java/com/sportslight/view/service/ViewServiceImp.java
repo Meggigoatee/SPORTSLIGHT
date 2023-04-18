@@ -1,0 +1,40 @@
+package com.sportslight.view.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.sportslight.view.dao.ViewDAO;
+import com.sportslight.view.dto.ViewBoardDTO;
+import com.sportslight.view.dto.ViewDTO;
+
+@Service
+public class ViewServiceImp implements ViewService{
+	
+	@Autowired
+	private ViewDAO viewDAO;
+
+	// 동영상 정보 가져오기
+	@Override
+	public ViewDTO getVideoService(int videoNum) {
+		// 정보를 가져올 때 마다 조회수가 증가
+		viewDAO.viewCount(videoNum);
+		// 동영상 정보를 리턴
+		return viewDAO.getVideo(videoNum) ;
+	}
+
+	// 동영상 한줄 댓글 가져오기
+	@Override
+	public List<ViewBoardDTO> getVideoBoardService(int videoNum) {
+		return viewDAO.getVideoBoard(videoNum);
+	}
+
+	// 동영상 한줄 댓글 개수 가져오기
+	@Override
+	public int getVideoBoardCountService(int videoNum) {
+		return viewDAO.getVideoBoardCount(videoNum);
+	}
+
+
+}
